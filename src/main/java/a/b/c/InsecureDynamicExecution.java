@@ -14,7 +14,7 @@ public class InsecureDynamicExecution {
             Object result = engine.eval(userInput);  // 🚨 Sink：未经清理的输入直接执行
             System.out.println("Execution result: " + result);
         } catch (ScriptException e) {
-            e.printStackTrace();
+            System.out.println("Error executing script: " + e.getMessage());  // ✅ 仅返回错误消息，避免暴露堆栈信息
         }
     }
 }
